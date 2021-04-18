@@ -15,65 +15,6 @@
 #include "deep_learning_CMO.h"
 
 
-/*
-static inline void cmo_lib_free(void *d)
-{
-    if (NULL == d)
-        return;
-
-    free(((void **)d)[-1]);
-}
-
-
-static void *cmo_lib_calloc(int cnt, int size, int align)
-{
-    int total_size = cnt * size + align + sizeof(void *);
-    void *res = malloc(total_size);
-    if (NULL == res)
-    {
-        return NULL;
-    }
-    bzero(res, total_size);
-    void **data = (void **)res + 1;
-    void **aligned;
-    if (align)
-        aligned = (void **)(((size_t)data + (align - 1)) & -align);
-    else
-        aligned = data;
-
-    aligned[-1] = res;
-    return (void *)aligned;
-}
-
-
-static inline matrix_NHWC *matrix_NHWC_alloc(int n, int w, int h, int c)
-{
-	matrix_NHWC *r = (matrix_NHWC *)cmo_lib_calloc(1, sizeof(matrix_NHWC), 0);
-    if (NULL == r)
-    {
-        printf("internal r failed.\n");
-        return NULL;
-    }
-    float *items = (float *)cmo_lib_calloc(n * w * h * c, sizeof(float), 0);
-    if (NULL == items)
-    {
-        printf("matrix3d item alloc failed.\n");
-        cmo_lib_free(r);
-        return NULL;
-    }
-
-    r->w = w;
-    r->h = h;
-    r->c = c;
-    r->n = n;
-    r->stride = w * c;
-    r->item = items;
-
-    return r;
-}
-*/
-
-
 void cmo_NHWC_l2_normalize(matrix_NHWC *s)
 {
 
